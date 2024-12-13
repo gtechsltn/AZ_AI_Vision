@@ -121,8 +121,8 @@ async Task ReadFileUrl(ComputerVisionClient client, string urlFile)
 
 async Task ImageTextAnalysis()
 {
-    var client = new ImageAnalysisClient(new Uri("https://msitvision.cognitiveservices.azure.com/"),
-            new AzureKeyCredential("7KtvmqupSJlv7gNwcdaJQD42Qc8PRrya4J6msWkhpUeriGIFBz9lJQQJ99AKAC4f1cMXJ3w3AAAFACOGt7FO"));
+    var client = new ImageAnalysisClient(new Uri(""),
+            new AzureKeyCredential(""));
 
     byte[] imageData = ImageToBinary("D:\\MyDemos\\ai\\AZ_AI_Vision\\CS_Printed_Handwritten_Text\\printed_Texts\\patrika" +
         ".jpg");
@@ -186,8 +186,8 @@ async Task ImageTextAnalysis()
 
 
         ComputerVisionClient client =
-              new ComputerVisionClient(new ApiKeyServiceClientCredentials("7KtvmqupSJlv7gNwcdaJQD42Qc8PRrya4J6msWkhpUeriGIFBz9lJQQJ99AKAC4f1cMXJ3w3AAAFACOGt7FO"))
-              { Endpoint = "https://msitvision.cognitiveservices.azure.com/" };
+              new ComputerVisionClient(new ApiKeyServiceClientCredentials(""))
+              { Endpoint = "" };
         Console.WriteLine("----------------------------------------------------------");
         Console.WriteLine("ANALYZE IMAGE - URL");
         Console.WriteLine($"URL:  {READ_TEXT_URL_IMAGE}");
