@@ -1,0 +1,74 @@
+﻿Certainly! To read a phone number from an image using Azure AI in C#, you'll need to use the Azure Computer Vision API to extract text from the image. Here's a step-by-step guide:
+
+1. **Set up Azure Computer Vision API**:
+   - Create an Azure Computer Vision resource in the Azure portal.
+   - Get the endpoint and subscription key.
+
+2. **Install necessary NuGet packages**:
+   - `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`
+
+3. **Write the C# code**:
+
+```csharp
+using System;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+
+class Program
+{
+    private const string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+    private const string endpoint = "YOUR_ENDPOINT";
+    private const string imageUrl = "URL_OF_YOUR_IMAGE";
+
+    static async Task Main(string[] args)
+    {
+        var client = new ComputerVisionClient(new ApiKeyServiceClientCredentials(subscriptionKey))
+        {
+            Endpoint = endpoint
+        };
+
+        var textHeaders = await client.ReadAsync(imageUrl);
+        string operationLocation = textHeaders.OperationLocation;
+        string operationId = operationLocation.Substring(operationLocation.Length - 36);
+
+        ReadOperationResult results;
+        do
+        {
+            results = await client.GetReadResultAsync(Guid.Parse(operationId));
+        }
+        while (results.Status == OperationStatusCodes.Running || results.Status == OperationStatusCodes.NotStarted);
+
+        var textUrlFileResults = results.AnalyzeResult.ReadResults;
+
+        foreach (var page in textUrlFileResults)
+        {
+            foreach (var line in page.Lines)
+            {
+                string phoneNumber = ExtractPhoneNumber(line.Text);
+                if (!string.IsNullOrEmpty(phoneNumber))
+                {
+                    Console.WriteLine($"Phone Number Found: {phoneNumber}");
+                }
+            }
+        }
+    }
+
+    private static string ExtractPhoneNumber(string text)
+    {
+        var phoneNumber = System.Text.RegularExpressions.Regex.Match(text, @"\+?\d[\d -]{8,}\d");
+        return phoneNumber.Success ? phoneNumber.Value : null;
+    }
+}
+```
+
+### Explanation:
+1. **Set up the Computer Vision client**: This connects to the Azure Computer Vision API using your subscription key and endpoint.
+2. **Read text from the image**: The `ReadAsync` method sends the image to the API, and `GetReadResultAsync` retrieves the extracted text.
+3. **Extract phone number**: The `ExtractPhoneNumber` method uses a regular expression to find phone numbers in the extracted text.
+
+Make sure to replace placeholders like `YOUR_SUBSCRIPTION_KEY`, `YOUR_ENDPOINT`, and `URL_OF_YOUR_IMAGE` with your actual values.
+
+Would you like more details on any specific part of this process?

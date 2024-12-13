@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35521.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureAIVisionv3.2GARead", "AzureAIVisionv3.2GARead", "{797499FF-7AB1-4603-AE48-A23EB5E956CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_Printed_Handwritten_Text", "CS_Printed_Handwritten_Text\CS_Printed_Handwritten_Text.csproj", "{E5F11E7E-CF12-45BA-90A6-F6FCD282A032}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor_AI_ComputerViosn_ImageTableReader", "Blazor_AI_ComputerViosn_ImageTableReader\Blazor_AI_ComputerViosn_ImageTableReader.csproj", "{AF171E3A-EB31-4C5D-902E-AA225CF612B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5F11E7E-CF12-45BA-90A6-F6FCD282A032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F11E7E-CF12-45BA-90A6-F6FCD282A032}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F11E7E-CF12-45BA-90A6-F6FCD282A032}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F11E7E-CF12-45BA-90A6-F6FCD282A032}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF171E3A-EB31-4C5D-902E-AA225CF612B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF171E3A-EB31-4C5D-902E-AA225CF612B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF171E3A-EB31-4C5D-902E-AA225CF612B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF171E3A-EB31-4C5D-902E-AA225CF612B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E5F11E7E-CF12-45BA-90A6-F6FCD282A032} = {797499FF-7AB1-4603-AE48-A23EB5E956CC}
+		{AF171E3A-EB31-4C5D-902E-AA225CF612B9} = {797499FF-7AB1-4603-AE48-A23EB5E956CC}
+	EndGlobalSection
+EndGlobal

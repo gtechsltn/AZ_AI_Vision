@@ -1,0 +1,4 @@
+{
+  "AzureComputerVisionAIServiceEndpoint": "[AI-SERVICE-ENDPOINT]",
+  "AzureComputerVisionAIServiceKey": "[AI-SERVICE-KEY]"
+}

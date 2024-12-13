@@ -1,0 +1,43 @@
+﻿Sure! Here's a step-by-step guide to creating a custom model for Document Intelligence in Azure using Azure Document Intelligence Studio. I'll also include links to relevant videos for each step.
+
+### Step-by-Step Procedure
+
+1. **Create an Azure Subscription and Resource**
+   - If you don't have an Azure subscription, create one here.
+   - Create a Document Intelligence resource in the Azure portal to get your key and endpoint.
+
+2. **Prepare Your Training Data**
+   - Gather at least five documents of the same type for training.
+   - Ensure your documents are in supported formats like PDF, JPEG, PNG, etc.
+
+3. **Upload Training Data to Azure Blob Storage**
+   - Create an Azure Storage account and a container.
+   - Upload your training documents to the container.
+
+4. **Create a Project in Document Intelligence Studio**
+   - Navigate to the Document Intelligence Studio.
+   - Select the **Custom extraction model** tile and click **Create a project**.
+   - Provide a name and description for your project.
+   - Select your Document Intelligence resource and storage account.
+
+5. **Label Your Data**
+   - In the Studio, label the fields you want to extract from your documents.
+   - Use the plus (➕) button to add fields and assign values by selecting text in the document.
+
+6. **Train Your Model**
+   - Once labeling is complete, click the **Train** button.
+   - Provide a unique model ID and select the type of model you want to train (template or neural).
+   - Click **Train** to start the training process.
+
+7. **Test Your Model**
+   - After training, test your model by selecting it from the models list.
+   - Upload a test document and click **Analyze** to see the extracted fields.
+
+8. **Deploy and Use Your Model**
+   - Use the REST API or SDK to integrate your trained model into your applications.
+
+### Video Tutorials
+- [Creating and Training a Custom Model](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/build-a-custom-model?view=doc-intel-4.0.0)
+- [Labeling Data in Document Intelligence Studio](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/how-to-guides/compose-custom-models?view=doc-intel-4.0.0)
+
+These steps should help you get started with creating a custom model for document intelligence in Azure. If you have any specific questions or need further assistance, feel free to ask!

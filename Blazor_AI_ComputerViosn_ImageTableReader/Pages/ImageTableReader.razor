@@ -1,0 +1,52 @@
+﻿@page "/imagetablereader"
+@using AIProcessor
+@inject HttpClient Http
+@inject IConfiguration Configuration
+@inject AIImageProcessor ImageProcessor
+<h3>Image Table Reader</h3>
+<h4>
+    Upload the Image to read Text from it
+</h4>
+
+<div class="container alt altwarning">
+    <div class="row">
+        <div class="col-md-6">
+            @* <input type="file" id="file" @onchange="@OnInputFileChange"  /> *@
+            <InputFile OnChange="OnInputFileChange" />
+            @if (!string.IsNullOrEmpty(imageDataUrl))
+            {
+                <img src="@imageDataUrl" alt="Uploaded Image" style="height:400px;width:1000px;" />
+            }
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning">
+        <InputTextArea @bind-Value="ImageText" style="height:400px;width:1000px;overflow:scroll"></InputTextArea>
+    </div>
+</div>
+
+
+
+
+
+@code {
+    public List<string> lstData { get; set; } = new List<string>();
+    public string ImageText { get; set; } = string.Empty;
+    private string? imageDataUrl;
+
+    private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        var buffer = new byte[file.Size];
+
+        var resizedImageFile = await file.RequestImageFileAsync("image/png", 300, 500);
+        await resizedImageFile.OpenReadStream().ReadAsync(buffer);
+        imageDataUrl = $"data:image/png;base64,{Convert.ToBase64String(buffer)}";
+
+        var memoryStream = new MemoryStream();
+        await file.OpenReadStream().CopyToAsync(memoryStream);
+        memoryStream.Position = 0;
+        ImageText = await ImageProcessor.UploadAndProcessImageAsync(memoryStream);
+    }
+    
+}

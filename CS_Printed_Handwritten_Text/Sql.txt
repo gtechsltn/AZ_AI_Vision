@@ -1,0 +1,11 @@
+﻿Create Table Orders (
+  OrderId int Primary Key,
+  CustomerName varchar(200) Not Null,
+  ContactNo int not null,
+  Email varchar(200) Not Null,
+  [Address] varchar(500) Not Null,
+  City varchar(100) Not Null,
+  [State] varchar(200) Not Null,
+  OrederdItem varchar(200) Not Null,
+  BillAmount int Not Null 
+);
