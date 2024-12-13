@@ -11,8 +11,8 @@ Console.WriteLine("Azure AI Vision v3.2 GA Read");
 try
 {
 
-    string key = "7KtvmqupSJlv7gNwcdaJQD42Qc8PRrya4J6msWkhpUeriGIFBz9lJQQJ99AKAC4f1cMXJ3w3AAAFACOGt7FO";
-    string endpoint = "https://msitvision.cognitiveservices.azure.com/";
+    string key = "";
+    string endpoint = "";
 
    //string READ_TEXT_URL_IMAGE = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/printed_text.jpg";
 
